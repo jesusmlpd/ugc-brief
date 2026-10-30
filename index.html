@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="UGC creator brief for Marblism: Sonny, Eva and Stan.">
+ <title>Marblism UGC Creator Brief</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a marked-up creative brief. Narrow reading column, hook "script cards" with timecodes, one highlighter accent. Single light look on purpose. */
+:root { padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+  --paper: #fbfbfd;
+  --ink: #141a2e;
+  --muted: #5a6178;
+  --line: #e3e5ee;
+  --card: #ffffff;
+  --hl: #ffe45c;
+  --brand: #3b3fe0;
+  --brand-soft: #ecedfd;
+  --red: #c4382b;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--body); }
+.wrap { max-width: 880px; margin: 0 auto; padding-block: 48px 96px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.08; }
+h1 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.25rem; font-weight: 700; }
+p { margin: 0; }
+.mark { background: linear-gradient(transparent 55%, var(--hl) 55%); padding: 0 .1em; }
+.eyebrow { font: 600 .75rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--brand); }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 62ch; }
+section { display: grid; gap: 20px; padding-top: 64px; }
+.top { display: grid; gap: 22px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 .8rem/1 var(--mono); padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); }
+.chip b { color: var(--brand); font-weight: 600; }
+
+/* pain wall */
+.pains { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.pain { border-left: 3px solid var(--red); padding: 4px 0 4px 14px; }
+.pain strong { display: block; font-family: var(--display); font-size: 1.1rem; }
+.pain span { color: var(--muted); font-size: .95rem; }
+
+/* who */
+.who { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.box { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.box ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.box.feature { background: var(--brand-soft); border-color: transparent; }
+
+/* agents */
+.agents { display: grid; gap: 16px; }
+.agent { display: grid; grid-template-columns: 170px 1fr; gap: 20px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+.agent .name { display: grid; gap: 6px; align-content: start; }
+.agent .name h3 { font-size: 1.7rem; }
+.tag { font: 600 .7rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.tag.p1 { color: var(--brand); }
+.agent ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.agent .say { margin-top: 10px; font-size: .92rem; color: var(--muted); }
+@media (max-width: 620px) { .agent { grid-template-columns: 1fr; gap: 12px; } }
+
+/* hooks */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font: 500 .85rem/1 var(--body); padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.filters button:focus-visible, .copy:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.hooks { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+@media (max-width: 380px) { .hooks { grid-template-columns: 1fr; } }
+.hook { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 16px 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.hook .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.tc { font: 600 .72rem/1 var(--mono); color: var(--red); }
+.hook q { font-family: var(--display); font-size: 1.12rem; font-weight: 600; line-height: 1.3; quotes: "\201C" "\201D"; }
+.hook .lbl { display: flex; gap: 6px; flex-wrap: wrap; }
+.hook .lbl span { font: 500 .7rem/1 var(--mono); padding: 5px 7px; border-radius: 4px; background: var(--paper); border: 1px solid var(--line); color: var(--muted); }
+.hook .lbl span.a { color: var(--brand); border-color: var(--brand-soft); background: var(--brand-soft); }
+.copy { font: 500 .75rem/1 var(--mono); border: 0; background: none; color: var(--muted); cursor: pointer; padding: 4px; }
+.copy:hover { color: var(--ink); }
+
+/* structure */
+.timeline { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--card); }
+.beat { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 16px 20px; border-top: 1px solid var(--line); }
+.beat:first-child { border-top: 0; }
+.beat .tc { font-size: .8rem; padding-top: 3px; }
+.beat b { display: block; }
+.beat span { color: var(--muted); font-size: .95rem; }
+@media (max-width: 520px) { .beat { grid-template-columns: 1fr; gap: 4px; } }
+.formats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+
+/* pay */
+.pay { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.price { font: 800 clamp(2.2rem, 5vw, 3rem)/1 var(--display); letter-spacing: -0.02em; }
+.or { font: 600 .8rem/1 var(--mono); color: var(--muted); }
+.extras { display: flex; flex-wrap: wrap; gap: 10px; }
+.extras .chip { font-size: .85rem; padding: 10px 12px; }
+
+/* do/don't */
+.dd { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.dd .box h3 { font-size: 1.05rem; }
+.dd .do h3 { color: #1f7a4a; }
+.dd .dont h3 { color: var(--red); }
+
+.apply { background: var(--ink); color: var(--paper); border-radius: 12px; padding: 28px; display: grid; gap: 14px; }
+.apply ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.apply .eyebrow { color: var(--hl); }
+footer { padding-top: 40px; color: var(--muted); font-size: .85rem; }
+@media (prefers-reduced-motion: no-preference) { .hook { transition: border-color .15s; } .hook:hover { border-color: var(--brand); } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <p class="eyebrow">Creator brief · Marblism · Fall 2026</p>
+    <h1>Small business owners didn't start a business to <span class="mark">answer email at 11 PM.</span></h1>
+    <p class="lede">We're hiring UGC creators to tell that story. Marblism gives small businesses a team of AI employees. Your job is to make an overworked owner stop scrolling, feel seen in the first 2 seconds, and then watch Sonny, Eva or Stan take the work off their plate.</p>
+    <div class="meta">
+      <span class="chip"><b>Products</b> Sonny · Eva · Stan</span>
+      <span class="chip"><b>Format</b> 9:16 vertical, 20-45s</span>
+      <span class="chip"><b>Pay</b> up to $1,000 flat or performance</span>
+      <span class="chip"><b>License</b> 12 months, unlimited use</span>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">Lead with the pain</p>
+    <h2>Every video opens on a problem the viewer had this week.</h2>
+    <p class="lede">Don't open with Marblism. Don't open with AI. Open with the moment your viewer is living right now. The product shows up only after they've nodded along.</p>
+    <div class="pains">
+      <div class="pain"><strong>The inbox never ends</strong><span>Hundreds of unread emails, real clients buried under vendor spam and newsletters.</span></div>
+      <div class="pain"><strong>Missed leads = lost money</strong><span>A job request sat unanswered for 3 days. The customer hired someone else.</span></div>
+      <div class="pain"><strong>"I should be posting"</strong><span>The Instagram is dead, competitors post daily, and there's never time to film.</span></div>
+      <div class="pain"><strong>No pipeline</strong><span>Business is word of mouth and referrals. When they dry up, the calendar does too.</span></div>
+      <div class="pain"><strong>Nights and Sundays</strong><span>Admin eats the evenings and weekends that were supposed to be family time.</span></div>
+      <div class="pain"><strong>Can't afford a team</strong><span>A social media manager runs about $3,000 a month. A BDR, more. An assistant, more.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Who we're looking for</p>
+    <h2>Creators who look and sound like our customer.</h2>
+    <div class="who">
+      <div class="box feature">
+        <h3>Profile</h3>
+        <ul>
+          <li>Ages 25 to 65</li>
+          <li>Women creators preferred for this round</li>
+          <li>Reads as a real business owner, not an influencer</li>
+          <li>US-based, natural American English</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Big plus: you actually work in</h3>
+        <ul>
+          <li>Tax advising, bookkeeping, CPA practices</li>
+          <li>Real estate (agents, brokers, property managers)</li>
+          <li>Plumbing and home services (HVAC, electrical, cleaning, contractors)</li>
+          <li>Any owner-run SMB with 1 to 20 people</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>On camera</h3>
+        <ul>
+          <li>Real settings: your office, truck, job site, kitchen table</li>
+          <li>Talks like a peer, a little tired, a little funny</li>
+          <li>Comfortable showing a laptop or phone screen</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">What you're promoting</p>
+    <h2>Three AI employees. Sonny and Eva are the priority.</h2>
+    <p class="lede">All three are included in every Marblism plan, starting at $24/month on the yearly option. Show the real product on screen: we'll give you an account and walkthrough.</p>
+    <div class="agents">
+      <article class="agent">
+        <div class="name"><span class="tag p1">Priority 1</span><h3>Sonny</h3><span class="tag">AI social media manager</span></div>
+        <div>
+          <ul>
+            <li>Comes up with post ideas from your business and what's trending</li>
+            <li>Writes posts in your voice and creates the photos and short videos himself</li>
+            <li>Posts to Instagram, TikTok, YouTube, LinkedIn, Threads, X and Facebook</li>
+            <li>Up to 3 posts a day, on autopilot or with your quick approval</li>
+          </ul>
+          <p class="say">Story angle: "My feed posts itself now. I just approve."</p>
+        </div>
+      </article>
+      <article class="agent">
+        <div class="name"><span class="tag p1">Priority 1</span><h3>Eva</h3><span class="tag">AI executive assistant</span></div>
+        <div>
+          <ul>
+            <li>Sorts your inbox into To Respond, FYI, Marketing and filters the noise</li>
+            <li>Drafts replies in your writing style, right in your inbox</li>
+            <li>Manages your calendar and takes notes in your online meetings</li>
+            <li>Works with Gmail, Outlook and any IMAP email</li>
+          </ul>
+          <p class="say">Story angle: "I open my inbox and it's already handled." Note: Eva drafts, you hit send. Never say she sends emails for you.</p>
+        </div>
+      </article>
+      <article class="agent">
+        <div class="name"><span class="tag">Priority 2</span><h3>Stan</h3><span class="tag">AI sales rep, LinkedIn focus</span></div>
+        <div>
+          <ul>
+            <li>Finds prospects that match your ideal customer</li>
+            <li>Sends LinkedIn connection requests and follow-up messages for you</li>
+            <li>Also runs personalized cold email with automatic follow-ups</li>
+            <li>Learns from replies and improves targeting over time</li>
+          </ul>
+          <p class="say">Story angle: "I hate cold outreach. Stan doesn't." Lead with LinkedIn: that's where our customers are.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Hook bank</p>
+    <h2>Start with one of these. Make it yours.</h2>
+    <p class="lede">These are the first 3 seconds. Rewrite them in your own words and your own industry. Every video should be filmed with at least 3 different hooks so we can test them.</p>
+    <div class="filters" role="group" aria-label="Filter hooks">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+      <button type="button" id="f-sonny" data-f="Sonny" aria-pressed="false">Sonny</button>
+      <button type="button" id="f-eva" data-f="Eva" aria-pressed="false">Eva</button>
+      <button type="button" id="f-stan" data-f="Stan" aria-pressed="false">Stan</button>
+      <button type="button" id="f-tax" data-f="Tax" aria-pressed="false">Tax</button>
+      <button type="button" id="f-re" data-f="Real estate" aria-pressed="false">Real estate</button>
+      <button type="button" id="f-home" data-f="Home services" aria-pressed="false">Home services</button>
+    </div>
+    <div class="hooks" id="hooks"></div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Video structure</p>
+    <h2>Pain first, product second, proof last.</h2>
+    <div class="timeline">
+      <div class="beat"><span class="tc">0:00-0:03</span><div><b>Hook: the pain</b><span>A line from the hook bank, said straight to camera or over a real moment (overflowing inbox, empty Instagram grid, ringing phone).</span></div></div>
+      <div class="beat"><span class="tc">0:03-0:08</span><div><b>Twist the knife</b><span>Make it specific. A number, a lost client, a missed dinner. "That was a $6,000 listing."</span></div></div>
+      <div class="beat"><span class="tc">0:08-0:25</span><div><b>The switch</b><span>"So I hired an AI employee." Screen-record Sonny, Eva or Stan doing the actual job. Show, don't describe.</span></div></div>
+      <div class="beat"><span class="tc">0:25-0:35</span><div><b>The after</b><span>Your real result: hours back, posts going out, replies coming in. Only claim what happened to you.</span></div></div>
+      <div class="beat"><span class="tc">0:35-0:45</span><div><b>CTA</b><span>"Try Marblism, link in bio" or your creator link. Keep it casual.</span></div></div>
+    </div>
+    <div class="formats">
+      <div class="box"><h3>Talking head</h3><p>You, your phone, one honest story. The workhorse.</p></div>
+      <div class="box"><h3>Green screen</h3><p>React over your messy inbox, dead feed or empty pipeline, then over the after.</p></div>
+      <div class="box"><h3>Day in the life</h3><p>Job site, showings, client meetings, while the AI team works in the background.</p></div>
+      <div class="box"><h3>Skeptic test</h3><p>"I didn't think AI could sound like me. Let's see." Real-time trial on camera.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Compensation</p>
+    <h2>Pick flat fee or performance.</h2>
+    <div class="pay">
+      <div class="box">
+        <span class="tag">Option A · Flat fee</span>
+        <p class="price">Up to $1,000</p>
+        <p>Per video package, based on your audience, niche fit and deliverables. Agreed before you film.</p>
+      </div>
+      <div class="box feature">
+        <span class="tag p1">Option B · Performance</span>
+        <p class="price">$1,000 / 1M views</p>
+        <p class="or">PLUS</p>
+        <p><b>35% of revenue from the users you bring in</b>, tracked through your personal link and code.</p>
+      </div>
+    </div>
+    <div class="extras">
+      <span class="chip">Marblism merch pack</span>
+      <span class="chip">Free Marblism account to use in your content</span>
+      <span class="chip">Repeat work for top performers</span>
+    </div>
+    <div class="box">
+      <h3>Usage rights</h3>
+      <p>Marblism gets an unlimited license to your content for 12 months from delivery: organic and paid, all platforms, cut-downs and edits, and whitelisting (running ads from your handle).</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Deliverables</p>
+    <h2>What we need from each video.</h2>
+    <div class="who">
+      <div class="box"><h3>Files</h3><ul><li>9:16 vertical, 1080x1920</li><li>20 to 45 seconds</li><li>Edited version plus raw footage</li><li>3 hook variations per video</li></ul></div>
+      <div class="box"><h3>Quality</h3><ul><li>Clear audio, no background music we can't license</li><li>Burned-in captions on the edited cut</li><li>Clean, readable screen recordings</li></ul></div>
+      <div class="box"><h3>Timeline</h3><ul><li>Script or hook approval first</li><li>First cut within 7 days of approval</li><li>One round of revisions included</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Guardrails</p>
+    <div class="dd">
+      <div class="box do"><h3>Do</h3><ul>
+        <li>Call them "AI employees" and use their names</li>
+        <li>Show the real product on screen</li>
+        <li>Use your real numbers and your real business</li>
+        <li>Disclose the partnership (#ad or the platform's paid partnership tag)</li>
+      </ul></div>
+      <div class="box dont"><h3>Don't</h3><ul>
+        <li>Open with "Hey guys" or the logo</li>
+        <li>Promise income, client wins or guaranteed results</li>
+        <li>Say Eva sends emails for you (she drafts, you send)</li>
+        <li>Show client names, emails or private data on screen</li>
+        <li>Badmouth competitors by name</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="apply">
+      <p class="eyebrow">How to apply</p>
+      <h2>Reply to whoever sent you this brief with:</h2>
+      <ol>
+        <li>Your handles and recent view counts</li>
+        <li>2 or 3 UGC samples (talking head preferred)</li>
+        <li>Your industry, if you work in tax, real estate or home services</li>
+        <li>Option A or Option B, and your rate if A</li>
+        <li>One hook from this page, rewritten in your words</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>Marblism · AI employees for small businesses · Brief valid for Q4 2026</footer>
+</div>
+
+<script>
+const HOOKS = [
+  ["Eva","Tax","It's April 10th. I have 412 unread emails and three clients who think I ghosted them."],
+  ["Eva","Tax","I'm a CPA. I bill by the hour. Last year I gave away 300 of them to my inbox."],
+  ["Sonny","Tax","My accountant friends think posting on Instagram is beneath them. That's why I'm getting their clients."],
+  ["Stan","Tax","Tax season is 4 months. Here's how I fill the other 8."],
+  ["Sonny","Real estate","I haven't posted a listing in 6 weeks. The agent down the street posts every single day."],
+  ["Eva","Real estate","I missed a buyer's email during a showing. By the time I saw it, they were under contract with someone else."],
+  ["Stan","Real estate","Every agent in my zip code is fighting over the same referrals. I went to LinkedIn instead."],
+  ["Sonny","Real estate","If your last Instagram post is a 'Just Sold' from March, this is for you."],
+  ["Eva","Home services","I was under a sink when a $4,000 job emailed me. I saw it three days later."],
+  ["Sonny","Home services","My truck is wrapped. My Instagram is dead. Guess which one gets me more calls now."],
+  ["Eva","Home services","I'm a plumber. Not a secretary. So why was I doing paperwork until midnight?"],
+  ["Stan","Home services","I've never sent a cold message in my life. This month I got 3 property managers on a call."],
+  ["Eva","","Stop scrolling if you're the CEO, the receptionist and the marketing department."],
+  ["Eva","","I spent last Sunday answering emails instead of with my kids. Never again."],
+  ["Sonny","","Things I stopped doing this year as a small business owner. Number one: posting."],
+  ["Sonny","","I didn't think AI could sound like me. So I let it run my socials for a month."],
+  ["Eva","","POV: you open your inbox and it's already sorted and the replies are drafted."],
+  ["Stan","","I hate cold outreach. So I hired someone who doesn't."],
+  ["Sonny","","A social media manager quoted me $3,000 a month. I found one for less than my coffee budget."],
+  ["Stan","","Referrals dried up in one month. Here's what I do now so it never happens again."]
+];
+const box = document.getElementById('hooks');
+HOOKS.forEach(([agent, ind, text]) => {
+  const el = document.createElement('article');
+  el.className = 'hook';
+  el.dataset.tags = agent + '|' + ind;
+  el.innerHTML = '<div class="row"><span class="tc">0:00-0:03 · HOOK</span><button type="button" class="copy">Copy</button></div>' +
+    '<q></q><div class="lbl"><span class="a"></span>' + (ind ? '<span></span>' : '<span>Any SMB</span>') + '</div>';
+  el.querySelector('q').textContent = text;
+  const spans = el.querySelectorAll('.lbl span');
+  spans[0].textContent = agent;
+  if (ind) spans[1].textContent = ind;
+  const btn = el.querySelector('.copy');
+  btn.addEventListener('click', () => {
+    const done = () => { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = 'Copy', 1400); };
+    try {
+      navigator.clipboard.writeText(text).then(done, () => selectText(el.querySelector('q')));
+    } catch (e) { selectText(el.querySelector('q')); }
+  });
+  box.appendChild(el);
+});
+function selectText(node) {
+  const r = document.createRange(); r.selectNodeContents(node);
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+}
+document.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filters button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  const f = b.dataset.f;
+  box.querySelectorAll('.hook').forEach(h => { h.hidden = f !== 'all' && !h.dataset.tags.split('|').includes(f); });
+}));
+</script>
+</body>
+</html>
