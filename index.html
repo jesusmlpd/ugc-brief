@@ -97,6 +97,29 @@ section { display: grid; gap: 20px; padding-top: 64px; }
 .pay { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 .price { font: 800 clamp(2.2rem, 5vw, 3rem)/1 var(--display); letter-spacing: -0.02em; }
 .or { font: 600 .8rem/1 var(--mono); color: var(--muted); }
+.perf { background: var(--card); border: 2px solid var(--brand); border-radius: 14px; padding: 24px; display: grid; gap: 22px; }
+.perf-head { display: grid; gap: 8px; }
+.streams { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: stretch; }
+.stream { background: var(--brand-soft); border-radius: 10px; padding: 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.stream .num { font: 600 .72rem/1 var(--mono); color: var(--brand); }
+.plus { font: 800 2rem/1 var(--display); color: var(--brand); align-self: center; }
+@media (max-width: 620px) { .streams { grid-template-columns: 1fr; } .plus { justify-self: center; } }
+.calc { border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 16px; }
+.sliders { display: grid; gap: 8px; }
+.sliders label { display: flex; justify-content: space-between; gap: 12px; font-weight: 500; }
+.sliders output { font: 600 .95rem/1.6 var(--mono); color: var(--brand); }
+.sliders input { width: 100%; accent-color: var(--brand); margin: 0 0 10px; }
+.result { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.result > div { display: grid; gap: 4px; padding: 12px; border-radius: 8px; background: var(--paper); min-width: 0; }
+.result b { font: 700 1.35rem/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.result .total { background: var(--hl); }
+.result .total b { font-size: 1.7rem; }
+@media (max-width: 520px) { .result { grid-template-columns: 1fr; } }
+.fine { font-size: .82rem; color: var(--muted); }
+.tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+.tiers > div { display: grid; gap: 4px; padding: 14px; border-top: 3px solid var(--brand); background: var(--paper); }
+.tiers span:last-child { font: 700 1.2rem/1.2 var(--display); color: var(--brand); }
+.flat { background: transparent; }
 .extras { display: flex; flex-wrap: wrap; gap: 10px; }
 .extras .chip { font-size: .85rem; padding: 10px 12px; }
 
@@ -124,7 +147,7 @@ footer { padding-top: 40px; color: var(--muted); font-size: .85rem; }
     <div class="meta">
       <span class="chip"><b>Products</b> Sonny · Eva · Stan</span>
       <span class="chip"><b>Format</b> 9:16 vertical, 20-45s</span>
-      <span class="chip"><b>Pay</b> up to $1,000 flat or performance</span>
+      <span class="chip"><b>Pay</b> $1,000 per 1M views, no cap + 35% rev share</span>
       <span class="chip"><b>License</b> 12 months, unlimited use</span>
     </div>
   </header>
@@ -256,19 +279,54 @@ footer { padding-top: 40px; color: var(--muted); font-size: .85rem; }
 
   <section>
     <p class="eyebrow">Compensation</p>
-    <h2>Pick flat fee or performance.</h2>
-    <div class="pay">
-      <div class="box">
-        <span class="tag">Option A · Flat fee</span>
-        <p class="price">Up to $1,000</p>
-        <p>Per video package, based on your audience, niche fit and deliverables. Agreed before you film.</p>
+    <h2>Get paid like a partner, <span class="mark">not a vendor.</span></h2>
+    <p class="lede">A flat fee pays you once. Performance pays you for every view and every customer your video brings in, and there's no ceiling.</p>
+
+    <div class="perf">
+      <div class="perf-head">
+        <span class="tag p1">Recommended · Performance deal</span>
+        <h3>Two ways to earn, stacked on every video.</h3>
       </div>
-      <div class="box feature">
-        <span class="tag p1">Option B · Performance</span>
-        <p class="price">$1,000 / 1M views</p>
-        <p class="or">PLUS</p>
-        <p><b>35% of revenue from the users you bring in</b>, tracked through your personal link and code.</p>
+      <div class="streams">
+        <div class="stream">
+          <span class="num">1</span>
+          <p class="price">$1,000</p>
+          <p><b>for every 1 million views.</b> No cap. 5 million views is $5,000. One video that takes off can out-earn a year of flat fees.</p>
+        </div>
+        <div class="plus" aria-hidden="true">+</div>
+        <div class="stream">
+          <span class="num">2</span>
+          <p class="price">35%</p>
+          <p><b>of the revenue from every user you bring in</b>, tracked through your own link and code. Every 10 users on the entry plan is about $1,000 more.</p>
+        </div>
       </div>
+
+      <div class="calc" aria-labelledby="calc-title">
+        <p class="eyebrow" id="calc-title">Run your numbers</p>
+        <div class="sliders">
+          <label for="views">Total views <output id="views-out">2M</output></label>
+          <input type="range" id="views" min="0" max="20" step="0.5" value="2">
+          <label for="users">Paying users from your link <output id="users-out">40</output></label>
+          <input type="range" id="users" min="0" max="500" step="5" value="40">
+        </div>
+        <div class="result">
+          <div><span class="tag">From views</span><b id="r-views">$2,000</b></div>
+          <div><span class="tag">From rev share</span><b id="r-rev">$4,032</b></div>
+          <div class="total"><span class="tag">You earn</span><b id="r-total">$6,032</b></div>
+        </div>
+        <p class="fine">Rev share estimate uses the entry plan ($24/month, billed yearly: $288 per user). Users on bigger plans earn you more.</p>
+      </div>
+
+      <div class="tiers">
+        <div><span class="tag">Solid video</span><b>1M views + 20 users</b><span>about $3,000</span></div>
+        <div><span class="tag">Strong video</span><b>3M views + 75 users</b><span>about $10,500</span></div>
+        <div><span class="tag">Breakout</span><b>10M views + 300 users</b><span>about $40,000</span></div>
+      </div>
+    </div>
+
+    <div class="box flat">
+      <span class="tag">Prefer certainty? Flat fee</span>
+      <p><b>Up to $1,000 per video package</b>, agreed before you film. Same license, no views bonus, no rev share.</p>
     </div>
     <div class="extras">
       <span class="chip">Marblism merch pack</span>
@@ -318,7 +376,7 @@ footer { padding-top: 40px; color: var(--muted); font-size: .85rem; }
         <li>Your handles and recent view counts</li>
         <li>2 or 3 UGC samples (talking head preferred)</li>
         <li>Your industry, if you work in tax, real estate or home services</li>
-        <li>Option A or Option B, and your rate if A</li>
+        <li>Performance deal or flat fee (and your rate if flat)</li>
         <li>One hook from this page, rewritten in your words</li>
       </ol>
     </div>
@@ -370,6 +428,18 @@ HOOKS.forEach(([agent, ind, text]) => {
   });
   box.appendChild(el);
 });
+const PER_USER = 288 * 0.35;
+const money = n => '$' + Math.round(n).toLocaleString('en-US');
+const vIn = document.getElementById('views'), uIn = document.getElementById('users');
+function calc() {
+  const v = +vIn.value, u = +uIn.value;
+  document.getElementById('views-out').textContent = v + 'M';
+  document.getElementById('users-out').textContent = u;
+  document.getElementById('r-views').textContent = money(v * 1000);
+  document.getElementById('r-rev').textContent = money(u * PER_USER);
+  document.getElementById('r-total').textContent = money(v * 1000 + u * PER_USER);
+}
+vIn.addEventListener('input', calc); uIn.addEventListener('input', calc); calc();
 function selectText(node) {
   const r = document.createRange(); r.selectNodeContents(node);
   const s = getSelection(); s.removeAllRanges(); s.addRange(r);
